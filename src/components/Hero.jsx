@@ -8,9 +8,22 @@ function Hero() {
   }
 
   // Allow overriding the 3D scene via env; fallback to default
-  const sceneUrl = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode'
+  const rawUrl = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode'
 
-  const isSplineCode = typeof sceneUrl === 'string' && sceneUrl.includes('scene.splinecode')
+  const isSplineCode = typeof rawUrl === 'string' && rawUrl.includes('scene.splinecode')
+
+  // For Spline embed links (not .splinecode), ensure autoplay is enabled
+  const sceneUrl = !isSplineCode
+    ? (() => {
+        try {
+          const u = new URL(rawUrl)
+          if (!u.searchParams.has('autoplay')) u.searchParams.set('autoplay', '1')
+          return u.toString()
+        } catch {
+          return rawUrl
+        }
+      })()
+    : rawUrl
 
   return (
     <section className="relative min-h-[90vh] w-full overflow-hidden" id="home">
@@ -20,11 +33,14 @@ function Hero() {
           <Spline scene={sceneUrl} style={{ width: '100%', height: '100%' }} />
         ) : (
           <iframe
+            key={sceneUrl}
             src={sceneUrl}
             title="Spline 3D Scene"
             frameBorder="0"
-            allow="autoplay; fullscreen"
+            allow="autoplay; fullscreen; xr-spatial-tracking; gyroscope; accelerometer; magnetometer; camera"
+            loading="eager"
             className="w-full h-full"
+            style={{ pointerEvents: 'auto' }}
           />
         )}
       </div>
