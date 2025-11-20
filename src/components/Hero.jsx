@@ -7,11 +7,13 @@ function Hero() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const sceneUrl = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode'
+
   return (
     <section className="relative min-h-[90vh] w-full overflow-hidden" id="home">
       {/* 3D Scene */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <Spline scene={sceneUrl} style={{ width: '100%', height: '100%' }} />
       </div>
 
       {/* Gradient and noise overlays - pointer events none so Spline stays interactive */}
