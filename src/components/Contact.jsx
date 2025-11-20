@@ -10,7 +10,7 @@ function Contact() {
           <input required placeholder="Your name" className="md:col-span-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white/90 placeholder-white/40 outline-none focus:border-sky-400/40" />
           <input required type="email" placeholder="Email" className="md:col-span-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white/90 placeholder-white/40 outline-none focus:border-sky-400/40" />
           <div className="md:col-span-1 flex gap-2">
-            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white/80"><Mail size={18} /> hello@royrw.dev</div>
+            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white/80"><Mail size={18} /> royyanwidyarto02@gmail.com</div>
           </div>
           <textarea required placeholder="Tell me about your project..." rows={5} className="md:col-span-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white/90 placeholder-white/40 outline-none focus:border-sky-400/40" />
           <div className="md:col-span-3">

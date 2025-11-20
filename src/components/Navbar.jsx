@@ -22,8 +22,8 @@ function Navbar() {
             ))}
           </nav>
           <div className="hidden md:flex items-center gap-3">
-            <a href="mailto:hello@royrw.dev" className="p-2 rounded-lg border border-white/10 text-white/80 hover:text-white hover:border-white/20 transition" aria-label="Email"><Mail size={18} /></a>
-            <a href="https://linkedin.com" target="_blank" className="p-2 rounded-lg border border-white/10 text-white/80 hover:text-white hover:border-white/20 transition" aria-label="LinkedIn" rel="noreferrer"><Linkedin size={18} /></a>
+            <a href="mailto:royyanwidyarto02@gmail.com" className="p-2 rounded-lg border border-white/10 text-white/80 hover:text-white hover:border-white/20 transition" aria-label="Email"><Mail size={18} /></a>
+            <a href="https://www.linkedin.com/in/royyan15/" target="_blank" className="p-2 rounded-lg border border-white/10 text-white/80 hover:text-white hover:border-white/20 transition" aria-label="LinkedIn" rel="noreferrer"><Linkedin size={18} /></a>
             <a href="https://github.com" target="_blank" className="p-2 rounded-lg border border-white/10 text-white/80 hover:text-white hover:border-white/20 transition" aria-label="GitHub" rel="noreferrer"><Github size={18} /></a>
           </div>
           <button className="md:hidden p-2 rounded-lg border border-white/10 text-white/80" onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
