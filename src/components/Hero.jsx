@@ -7,13 +7,26 @@ function Hero() {
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  // Allow overriding the 3D scene via env; fallback to default
   const sceneUrl = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/VJLoxp84lCdVfdZu/scene.splinecode'
+
+  const isSplineCode = typeof sceneUrl === 'string' && sceneUrl.includes('scene.splinecode')
 
   return (
     <section className="relative min-h-[90vh] w-full overflow-hidden" id="home">
       {/* 3D Scene */}
       <div className="absolute inset-0">
-        <Spline scene={sceneUrl} style={{ width: '100%', height: '100%' }} />
+        {isSplineCode ? (
+          <Spline scene={sceneUrl} style={{ width: '100%', height: '100%' }} />
+        ) : (
+          <iframe
+            src={sceneUrl}
+            title="Spline 3D Scene"
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            className="w-full h-full"
+          />
+        )}
       </div>
 
       {/* Gradient and noise overlays - pointer events none so Spline stays interactive */}
